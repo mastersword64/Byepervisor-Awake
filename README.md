@@ -81,3 +81,5 @@ PRs with verified offsets are welcome.
 - **ps5-payload-dev** — [ps5-payload-sdk](https://github.com/ps5-payload-dev/sdk)
 - **All devs worked to these projects**
 - **Claude (Anthropic)** — AI assistance with exploit design, offset scanning, and code
+
+- I am not a Dev, please don't mind if there are any mistakes or i forgot to credit someone.
