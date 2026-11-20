@@ -1,7 +1,7 @@
 #ifndef OFFSETS_6_02_H
 #define OFFSETS_6_02_H
 
-// PS5 Firmware 6.02 kernel offsets for Byepervisor-Reborn
+// PS5 Firmware 6.02 kernel offsets for Byepervisor-Awake
 // KERNEL_ADDRESS_TEXT_BASE = 0xFFFFFFFF80210000
 //
 // Status:
