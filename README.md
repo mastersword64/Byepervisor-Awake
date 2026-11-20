@@ -7,7 +7,6 @@ First HV defeat from FreeBSD **without S3 sleep/resume**. Uses Trap Flag single-
 Executes in under 2 seconds with no user interaction needed.
 
 Based on [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) by EchoStretch/PS5Dev (FW 7.61+).  
-Ported to FW 6.02 by mastersword64 with AI assistance (Claude).
 
 ## Status
 
