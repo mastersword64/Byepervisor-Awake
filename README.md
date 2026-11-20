@@ -7,7 +7,7 @@ First HV defeat from FreeBSD **without S3 sleep/resume**. Uses Trap Flag single-
 Executes in under 2 seconds with no user interaction needed.
 
 Based on [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) by EchoStretch/PS5Dev (FW 7.61+).  
-HV defeat technique from [ps5-linux-loader](https://github.com/ps5-payload-dev/ps5-linux-loader) by TheFlow/flow0 (FW 5.00-6.02).
+HV defeat technique from [ps5-linux-loader](https://github.com/ps5-linux/ps5-linux-loader) by TheFlow/flow0 (FW 5.00-6.02).
 
 ## Status
 
@@ -22,7 +22,7 @@ HV defeat technique from [ps5-linux-loader](https://github.com/ps5-payload-dev/p
 
 ### Why other firmwares should work
 
-All firmwares from 5.00 to 6.02 have `hv_unmap_pt_tmr` (HC 0x13) confirmed in [ps5-linux-loader](https://github.com/ps5-payload-dev/ps5-linux-loader) offset tables. The HV dispatch table structure and VMCB layout are the same across this range. The core exploit method (TF trigger → ROP → HC 0x13 → VMCB write) does not depend on firmware-specific behavior — only the kernel offsets change.
+All firmwares from 5.00 to 6.02 have `hv_unmap_pt_tmr` (HC 0x13) confirmed in [ps5-linux-loader](https://github.com/ps5-linux/ps5-linux-loader) offset tables. The HV dispatch table structure and VMCB layout are the same across this range. The core exploit method (TF trigger → ROP → HC 0x13 → VMCB write) does not depend on firmware-specific behavior — only the kernel offsets change.
 
 That said, **this has only been tested on 6.02**. Other firmwares may have differences we haven't encountered yet. The offset files are structured and ready — they just need the missing values filled in from a ktext dump of each firmware.
 
@@ -74,7 +74,8 @@ PRs with verified offsets are welcome.
 
 ## Credits
 
-- **EchoStretch / PS5Dev** — Original [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) exploit (khook framework, chain builder)
+- **EchoStretch** — Original [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) exploit (khook framework, chain builder)
 - **TheOfficialFloW** — [ps5-linux-loader](https://github.com/ps5-payload-dev/ps5-linux-loader) (kernel offsets, HC 0x13 approach)
 - **ps5-payload-dev** — [ps5-payload-sdk](https://github.com/ps5-payload-dev/sdk)
+- **Devs related to these projects**
 - **Claude (Anthropic)** — AI assistance with exploit design, offset scanning, and code
