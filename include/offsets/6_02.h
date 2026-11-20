@@ -3,15 +3,6 @@
 
 // PS5 Firmware 6.02 kernel offsets for Byepervisor-Awake
 // KERNEL_ADDRESS_TEXT_BASE = 0xFFFFFFFF80210000
-//
-// Status:
-//   [CONFIRMED]  = verified from ps5-linux-loader off_0602 (exact match)
-//   [VERIFIED]   = confirmed correct from decrypted ktext_602.bin dump
-//   [FOUND]      = found by scanning ktext dump (unverified)
-//   [POP_RBP]    = gadget has extra pop rbp before ret; chain builder adds dummy value
-//
-// [CONFIRMED] offsets from ps5-linux-loader off_0602
-// [VERIFIED] offsets confirmed from ktext_redump4 (kernel base PA 0xCBD0000, Nov 2026)
 
 uint64_t g_sym_map_0602[] = {
   0x3F445F4,  // KERNEL_SYM_DMPML4I                  [CONFIRMED]
