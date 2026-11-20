@@ -79,5 +79,5 @@ PRs with verified offsets are welcome.
 - **EchoStretch** — Original [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) exploit (khook framework, chain builder)
 - **TheOfficialFloW** — [ps5-linux-loader](https://github.com/ps5-payload-dev/ps5-linux-loader) (kernel offsets, HC 0x13 approach)
 - **ps5-payload-dev** — [ps5-payload-sdk](https://github.com/ps5-payload-dev/sdk)
-- **Devs related to these projects**
+- **All devs worked to these projects**
 - **Claude (Anthropic)** — AI assistance with exploit design, offset scanning, and code
