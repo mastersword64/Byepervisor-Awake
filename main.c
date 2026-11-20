@@ -1,25 +1,5 @@
 /*
- * Byepervisor Awake — PS5 HV defeat for FW 5.00–6.50
- *
- * First HV defeat from FreeBSD without S3 sleep/resume.
- * Uses Trap Flag single-step to bypass DR0 intercepts,
- * then hypercall 0x13 to remove TMR + DMAP VMCB writes
- * to disable NPT on all 16 cores.
- *
- * Result: full kernel .text R/W, VMCB access, HV memory R/W.
- * Executes in < 2 seconds, no user interaction needed.
- *
- * Usage: send via elfldr after kernel exploit + kstuff
- *   nc -q0 <PS5_IP> 9021 < byepervisor_awake.elf
- *
- * Based on Byepervisor Reborn by EchoStretch/PS5Dev (FW 7.61+)
- * Ported to FW 6.02 by mastersword64 with AI assistance (Claude)
- *
- * Key differences from original Byepervisor Reborn:
- *   - TF (Trap Flag) trigger instead of DR0 breakpoints (blocked on 5.xx-6.xx)
- *   - No S3 suspend/resume needed — fires instantly during normal operation
- *   - hv_unmap_pt_tmr (HC 0x13) instead of break_hv AP startup payload
- *   - Must run on CPU1 (HC 0x13 operates on calling vCPU's VMCB only)
+ * Byepervisor Awake — PS5 HV defeat for FW 5.00–6.02
  */
 #include <stdio.h>
 #include <string.h>
