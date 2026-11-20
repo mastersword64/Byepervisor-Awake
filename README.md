@@ -2,11 +2,12 @@
 
 PS5 Hypervisor defeat payload for firmware 5.00–6.02.
 
-First HV defeat from FreeBSD **without S3 sleep/resume**. Uses Trap Flag single-step to bypass DR0 intercepts, then hypercall (`hv_unmap_pt_tmr`) to remove the Trusted Memory Region and DMAP VMCB writes to disable Nested Page Tables on all 16 cores.
+First HV defeat from FreeBSD **without S3 sleep/resume**. Uses Trap Flag single-step to bypass DR0 intercepts, then hypercall 0x13 (`hv_unmap_pt_tmr`) to remove the Trusted Memory Region and DMAP VMCB writes to disable Nested Page Tables on all 16 cores.
 
 Executes in under 2 seconds with no user interaction needed.
 
 Based on [Byepervisor Reborn](https://github.com/EchoStretch/Byepervisor-Reborn) by EchoStretch/PS5Dev (FW 7.61+).  
+Ported to FW 6.02 by mastersword64 with AI assistance (Claude).
 
 ## Status
 
@@ -46,7 +47,7 @@ After the hypervisor is defeated:
 5. #DB pivots to ROP chain
 6. ROP calls HC 0x13 → removes TMR
 7. Write to all 16 VMCBs via DMAP → disables NPT
-8. Second HC  → HV reloads VMCBs
+8. Second HC 0x13 → HV reloads VMCBs
 9. HV defeated
 
 ## Building
@@ -65,7 +66,6 @@ Run after kernel exploit:
 nc -q0 <PS5_IP> 9021 < byepervisor_awake.elf
 ```
 
-
 ## Adding support for other firmwares
 
 The offset files for 5.00–6.00 (`include/offsets/`) have TODO entries (set to 0) for offsets that require a kernel text dump to find. The exploit exits safely with a PS5 notification on those firmwares until the offsets are filled in.
@@ -78,4 +78,3 @@ PRs with verified offsets are welcome.
 - **TheOfficialFloW** — [ps5-linux-loader](https://github.com/ps5-payload-dev/ps5-linux-loader) (kernel offsets, HC 0x13 approach)
 - **ps5-payload-dev** — [ps5-payload-sdk](https://github.com/ps5-payload-dev/sdk)
 - **Claude (Anthropic)** — AI assistance with exploit design, offset scanning, and code
-

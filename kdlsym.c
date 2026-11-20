@@ -4,11 +4,6 @@
 #include "util.h"
 #include "kdlsym.h"
 
-#include "offsets/5_00.h"
-#include "offsets/5_02.h"
-#include "offsets/5_10.h"
-#include "offsets/5_50.h"
-#include "offsets/6_00.h"
 #include "offsets/6_02.h"
 
 uint64_t g_fw_version;
@@ -25,16 +20,6 @@ uint64_t kgadget(kgadget_t gadget)
     return 0;
 
   switch(kernel_get_fw_version() & 0xffff0000) {
-  case 0x05000000:
-    return ktext(g_gadget_map_0500[gadget]);
-  case 0x05020000:
-    return ktext(g_gadget_map_0502[gadget]);
-  case 0x05100000:
-    return ktext(g_gadget_map_0510[gadget]);
-  case 0x05500000:
-    return ktext(g_gadget_map_0550[gadget]);
-  case 0x06000000:
-    return ktext(g_gadget_map_0600[gadget]);
   case 0x06020000:
     return ktext(g_gadget_map_0602[gadget]);
   default:
@@ -48,16 +33,6 @@ uint64_t kdlsym(ksym_t sym)
     return 0;
 
   switch(kernel_get_fw_version() & 0xffff0000) {
-  case 0x05000000:
-    return ktext(g_sym_map_0500[sym]);
-  case 0x05020000:
-    return ktext(g_sym_map_0502[sym]);
-  case 0x05100000:
-    return ktext(g_sym_map_0510[sym]);
-  case 0x05500000:
-    return ktext(g_sym_map_0550[sym]);
-  case 0x06000000:
-    return ktext(g_sym_map_0600[sym]);
   case 0x06020000:
     return ktext(g_sym_map_0602[sym]);
   default:
@@ -71,16 +46,6 @@ uint64_t rawoff(ksym_t sym)
     return 0;
 
   switch(kernel_get_fw_version() & 0xffff0000) {
-  case 0x05000000:
-    return g_sym_map_0500[sym];
-  case 0x05020000:
-    return g_sym_map_0502[sym];
-  case 0x05100000:
-    return g_sym_map_0510[sym];
-  case 0x05500000:
-    return g_sym_map_0550[sym];
-  case 0x06000000:
-    return g_sym_map_0600[sym];
   case 0x06020000:
     return g_sym_map_0602[sym];
   default:
