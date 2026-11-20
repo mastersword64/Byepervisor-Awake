@@ -68,7 +68,7 @@ nc -q0 <PS5_IP> 9021 < byepervisor_awake.elf
 
 ## Adding support for other firmwares
 
-The offset files for 5.00–6.00 (`include/offsets/`) have TODO entries (set to 0) for offsets that require a kernel text dump to find. The exploit exits safely with a PS5 notification on those firmwares until the offsets are filled in.
+The offset files for 5.00–6.00 (`include/offsets/`) have TODO entries (set to 0) for offsets that require a kernel text dump to find. 
 
 PRs with verified offsets are welcome.
 
