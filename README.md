@@ -26,7 +26,7 @@ HV defeat technique from [ps5-linux-loader](https://github.com/ps5-linux/ps5-lin
 
 All firmwares from 5.00 to 6.02 have `hv_unmap_pt_tmr` (HC 0x13) confirmed in [ps5-linux-loader](https://github.com/ps5-linux/ps5-linux-loader) offset tables. The HV dispatch table structure and VMCB layout are the same across this range. The core exploit method (TF trigger → ROP → HC 0x13 → VMCB write) does not depend on firmware-specific behavior — only the kernel offsets change.
 
-That said, **this has only been tested on 6.02**. Other firmwares may have differences we haven't encountered yet. The offset files are structured and ready — they just need the missing values filled in from a ktext dump of each firmware.
+That said, **this has only been tested on 6.02**. Other firmwares may have differences we haven't encountered yet. The offset files are structured and ready — they just need the missing values filled in from a ktext dump of each firmware which shouldn't be an big issue.
 
 ### 6.50 and above
 
