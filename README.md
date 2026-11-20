@@ -4,7 +4,7 @@ PS5 Hypervisor defeat for firmware 5.00–6.02.
 
 **Currently, only supports 6.02**
 
-First HV defeat from FreeBSD **without S3 sleep/resume**. Uses Trap Flag single-step to bypass DR0 intercepts, then hypercall 0x13 (`hv_unmap_pt_tmr`) to remove the Trusted Memory Region and DMAP VMCB writes to disable Nested Page Tables on all 16 cores.
+First HV defeat from FreeBSD. Uses Trap Flag single-step to bypass DR0 intercepts, then hypercall 0x13 (`hv_unmap_pt_tmr`) to remove the Trusted Memory Region and DMAP VMCB writes to disable Nested Page Tables on all 16 cores.
 
 Executes in under 2 seconds with no user interaction needed.
 
